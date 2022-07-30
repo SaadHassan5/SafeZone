@@ -11,7 +11,7 @@ const Login = (props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [open, setOpen] = useState(false)
-  const [opt, setOpt] = useState('Login As')
+  const [opt, setOpt] = useState('User')
   const loginAs = [
     { key: 'User' },
     { key: 'Police' },
@@ -39,7 +39,7 @@ const Login = (props) => {
             </TouchableOpacity>
           }
           <View style={{ height: HP(6), paddingHorizontal: WP(5), marginTop: HP(2) }}>
-            <CustomButton onPress={()=>{props.navigation.navigate("Welcome")}} txt={'Login'} />
+            <CustomButton onPress={()=>{opt=="User"?props.navigation.navigate("WelcomeUser"):props.navigation.navigate("WelcomeAdmin")}} txt={'Login'} />
           </View>
           <TouchableOpacity onPress={()=>{props.navigation.navigate('Signup')}} style={{ alignSelf: 'center', marginTop: HP(1), paddingVertical: HP(1) }}>
             <Text style={{ ...Styles.dontTxt, }}>Don't have an account?<Text style={{ color: '#034d5a', fontFamily: fontFamily.bold }}> Sign up</Text></Text>
